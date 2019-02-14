@@ -1,15 +1,14 @@
 package pokedex.tests;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import pokemon.controller.PokedexController;
-import pokemon.view.PokedexFrame;
-import pokemon.view.PokedexPanel;
+import pokedex.controller.PokedexController;
+import pokedex.view.PokedexFrame;
+import pokedex.view.PokedexPanel;
 
 class FrameTest
 {
