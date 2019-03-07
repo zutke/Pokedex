@@ -15,7 +15,7 @@ public class PokedexFrame extends JFrame
 	public void setupFrame(PokedexPanel panel)
 	{
 		this.setContentPane(panel);
-		this.setSize(800,600);
+		this.setSize(1280,760);
 		this.setVisible(true);
 	}
 }
