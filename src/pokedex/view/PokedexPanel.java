@@ -4,83 +4,119 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import pokedex.controller.PokedexController;
+import java.awt.GridLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class PokedexPanel extends JPanel
 {
 	private PokedexController app = new PokedexController();
 	private SpringLayout appLayout = new SpringLayout();
 	
-	private JButton changeButton;
-	private JComboBox pokedexDrop;
-	
-	private JTextField health;
-	private JTextField number;
-	private JTextField evolve;
-	private JTextField enhancement;
-	private JTextField attack;
-	private JTextField name;
-	
-	private JLabel healthL;
-	private JLabel numberL;
-	private JLabel evolveL;
-	private JLabel enhancementL;
-	private JLabel attackL;
-	private JLabel nameL;
-	private JLabel imageL;
+	/*
+	 * private JButton changeButton; private JComboBox pokedexDrop;
+	 * 
+	 * private JTextField health; 
+	 * private JTextField number; 
+	 * private JTextField evolve; 
+	 * private JTextField enhancement; 
+	 * private JTextField attack; 
+	 * private JTextField name;
+	 * 
+	 * private JLabel healthL; 
+	 * private JLabel numberL; 
+	 * private JLabel evolveL;
+	 * private JLabel enhancementL; 
+	 * private JLabel attackL; 
+	 * private JLabel nameL;
+	 * private JLabel imageL;
+	 */
 	
 	private ImageIcon pokemonIcon;
+	private JTextField nameField;
+	private JTextField numberField;
+	private JTextField healthField;
+	private JTextField attackField;
+	private JTextField enhancementField;
+	private JTextField evolvableField;
 	
 	public PokedexPanel(PokedexController app)
 	{
 		super();
 		this.app = app;
-		this.appLayout = new SpringLayout();
 		this.pokemonIcon = new ImageIcon();
-		
-		health = new JTextField("0");
-		number = new JTextField("My pokename");
-		evolve = new JTextField("false");
-		enhancement = new JTextField("0");
-		attack = new JTextField("0");
-		name = new JTextField("0");
-		
-		healthL = new JLabel("This pokemon's health is:");
-		numberL = new JLabel("This pokemon's number is:");
-		evolveL = new JLabel("Can this pokemon evolve?");
-		enhancementL = new JLabel("This pokemon's enhancement level is:");
-		attackL = new JLabel("This pokemon's attack level is:");
-		nameL = new JLabel("This pokemon's name is:");
-		
-		changeButton = new JButton("Click here to change pokevalues");
-		pokedexDrop = new JComboBox<String>(); // stub
 		
 		setupPanel();
 	}
 	
 	public void setupPanel()
 	{
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{450, 0};
+		gridBagLayout.rowHeights = new int[]{50, 50, 50, 50, 50, 50, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		setLayout(gridBagLayout);
 		
-		this.setLayout(appLayout);
-		this.add(changeButton);
-		this.add(pokedexDrop);
-		this.add(health);
-		this.add(number);
-		this.add(evolve);
-		this.add(enhancement);
-		this.add(attack);
-		this.add(name);
+		nameField = new JTextField();
+		nameField.setText("Name");
+		GridBagConstraints gbc_nameField = new GridBagConstraints();
+		gbc_nameField.fill = GridBagConstraints.BOTH;
+		gbc_nameField.insets = new Insets(0, 0, 5, 0);
+		gbc_nameField.gridx = 0;
+		gbc_nameField.gridy = 0;
+		add(nameField, gbc_nameField);
+		nameField.setColumns(10);
 		
-		this.add(healthL);
-		this.add(numberL);
-		this.add(evolveL);
-		this.add(enhancementL);
-		this.add(attackL);
-		this.add(nameL);
-		//this.add(imageL);
+		numberField = new JTextField();
+		numberField.setText("Number");
+		GridBagConstraints gbc_numberField = new GridBagConstraints();
+		gbc_numberField.fill = GridBagConstraints.BOTH;
+		gbc_numberField.insets = new Insets(0, 0, 5, 0);
+		gbc_numberField.gridx = 0;
+		gbc_numberField.gridy = 1;
+		add(numberField, gbc_numberField);
+		numberField.setColumns(10);
 		
-		//imageL.setVerticalTextPosition(JLabel.BOTTOM);
-		//imageL.setHorizontalTextPosition(JLabel.CENTER);
+		healthField = new JTextField();
+		healthField.setText("Health");
+		GridBagConstraints gbc_healthField = new GridBagConstraints();
+		gbc_healthField.fill = GridBagConstraints.BOTH;
+		gbc_healthField.insets = new Insets(0, 0, 5, 0);
+		gbc_healthField.gridx = 0;
+		gbc_healthField.gridy = 2;
+		add(healthField, gbc_healthField);
+		healthField.setColumns(10);
 		
+		attackField = new JTextField();
+		attackField.setText("Attack");
+		GridBagConstraints gbc_attackField = new GridBagConstraints();
+		gbc_attackField.fill = GridBagConstraints.BOTH;
+		gbc_attackField.insets = new Insets(0, 0, 5, 0);
+		gbc_attackField.gridx = 0;
+		gbc_attackField.gridy = 3;
+		add(attackField, gbc_attackField);
+		attackField.setColumns(10);
+		
+		enhancementField = new JTextField();
+		enhancementField.setText("Enhancement");
+		GridBagConstraints gbc_enhancementField = new GridBagConstraints();
+		gbc_enhancementField.fill = GridBagConstraints.BOTH;
+		gbc_enhancementField.insets = new Insets(0, 0, 5, 0);
+		gbc_enhancementField.gridx = 0;
+		gbc_enhancementField.gridy = 4;
+		add(enhancementField, gbc_enhancementField);
+		enhancementField.setColumns(10);
+		
+		evolvableField = new JTextField();
+		evolvableField.setText("Evolvable?");
+		GridBagConstraints gbc_evolvableField = new GridBagConstraints();
+		gbc_evolvableField.fill = GridBagConstraints.BOTH;
+		gbc_evolvableField.gridx = 0;
+		gbc_evolvableField.gridy = 5;
+		add(evolvableField, gbc_evolvableField);
+		evolvableField.setColumns(10);
 		this.setVisible(true);
 	}
 	
